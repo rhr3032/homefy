@@ -78,13 +78,14 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
           />
         </div>
         <div className="mb-9">
-          <button
-            type="submit"
+          <a
+            href="https://homefy-admin.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex w-full cursor-pointer items-center justify-center rounded-2xl border border-primary bg-primary hover:bg-transparent hover:text-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out "
           >
             Sign In
-          </button>
-
+          </a>
         </div>
       </form>
 
