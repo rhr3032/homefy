@@ -21,14 +21,8 @@ const handler = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (credentials) => {
-        // Add your own authentication logic here
-        if (credentials.username === 'admin' && credentials.password === 'admin123') {
-          // Return user object if credentials are valid
-          return Promise.resolve({ id: 1, name: 'Admin', email: 'admin@example.com' });
-        } else {
-          // Return null if credentials are invalid
-          return Promise.resolve(null);
-        }
+        // No authentication, always allow
+        return Promise.resolve({ id: 1, name: credentials.username || 'User', email: `${credentials.username || 'user'}@example.com` });
       },
     }),
   ],
