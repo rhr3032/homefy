@@ -66,6 +66,8 @@ const FeaturedProperty: React.FC = () => {
                   key={index}
                   onClick={() => handleDotClick(index)}
                   className={`w-2.5 h-2.5 rounded-full ${current === index + 1 ? "bg-white" : "bg-white/50"}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  title={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>

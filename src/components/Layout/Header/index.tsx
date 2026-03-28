@@ -66,6 +66,7 @@ const Header: React.FC = () => {
             <button
               className='hover:cursor-pointer'
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              title="Toggle theme"
             >
               <Icon
                 icon={'solar:sun-bold'}
