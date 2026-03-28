@@ -24,10 +24,7 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
       username,
       password,
     });
-    if (result?.error) {
-      setError(result.error);
-    }
-    if (result?.status === 200) {
+    if (result?.ok) {
       // You can add a check here for super admin if needed
       router.push("/admin/dashboard");
       authDialog?.setIsSuccessDialogOpen(true);
@@ -35,6 +32,7 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
         authDialog?.setIsSuccessDialogOpen(false);
       }, 1100);
     } else {
+      setError(result?.error || "Invalid credentials");
       authDialog?.setIsFailedDialogOpen(true);
       setTimeout(() => {
         authDialog?.setIsFailedDialogOpen(false);
