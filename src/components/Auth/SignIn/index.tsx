@@ -14,10 +14,10 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
   const [password, setPassword] = useState("admin123");
   const [error, setError] = useState("");
   const authDialog = useContext(AuthDialogContext);
+  const router = useRouter();
 
 
   const handleSubmit = async (e: any) => {
-    const notify = () => toast('Here is your toast.');
     e.preventDefault();
     const result = await signIn("credentials", {
       redirect: false,
@@ -28,9 +28,8 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
       setError(result.error);
     }
     if (result?.status === 200) {
-      setTimeout(() => {
-        signInOpen(false);
-      }, 1200);
+      // You can add a check here for super admin if needed
+      router.push("/admin/dashboard");
       authDialog?.setIsSuccessDialogOpen(true);
       setTimeout(() => {
         authDialog?.setIsSuccessDialogOpen(false);
